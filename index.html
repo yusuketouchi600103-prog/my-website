@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>アジアパラ競技大会を見据えた多数傷病者対応と現場医療体制</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Noto Sans JP', sans-serif;
+        }
+        /* Page break for printing */
+        @media print {
+            .slide {
+                page-break-after: always;
+                box-shadow: none;
+                border: 1px solid #ccc;
+            }
+        }
+        .image-container {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            background-color: #f3f4f6;
+            border-radius: 0.5rem;
+        }
+        .image-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 flex flex-col items-center p-8">
+
+    <!-- Slide 1: Title -->
+    <div class="slide w-[1024px] h-[768px] bg-white rounded-xl shadow-2xl p-16 my-8 relative flex flex-col justify-center items-center">
+        <div class="w-full text-center">
+            <h1 class="text-5xl font-bold text-blue-900 leading-tight">アジアパラ競技大会を見据えた<br>多数傷病者対応と現場医療体制</h1>
+            <p class="mt-8 text-2xl text-gray-700">岡崎市消防本部 救急課</p>
+            <p class="mt-2 text-2xl text-gray-700">[研修日：2025年10月14日]</p>
+            <div class="w-4/5 h-56 mt-8 mx-auto image-container">
+                <img src="https://source.unsplash.com/800x300/?stadium,sports" alt="アジアパラ競技大会のロゴとスタジアム">
+            </div>
+        </div>
+        <footer class="absolute bottom-8 right-12 text-gray-500">岡崎市消防本部指導救命士</footer>
+    </div>
+
+    <!-- Slide 2: Introduction -->
+    <div class="slide w-[1024px] h-[768px] bg-white rounded-xl shadow-2xl p-16 my-8 relative flex flex-col">
+        <div class="w-full">
+            <h2 class="text-4xl font-bold text-blue-800 border-b-4 border-blue-800 pb-2 mb-8">はじめに - 本研修の目的</h2>
+            <ul class="list-disc pl-8 space-y-4 text-2xl text-gray-800">
+                <li>大規模スポーツイベントにおける救急・救護活動の特殊性を理解する。</li>
+                <li>多数傷病者発生時（MCI）における組織的な活動原則を習得する。</li>
+                <li>多機関（DMAT、警察、医療機関）との連携要領を再確認する。</li>
+            </ul>
+            <p class="mt-12 text-2xl"><strong class="text-red-600 font-bold">ゴール：「個」の活動から「組織」の活動へ。</strong><br>現場全体の医療活動をマネジメントする視点を養う。</p>
+            <div class="w-full h-64 mt-8 mx-auto image-container">
+                <img src="https://source.unsplash.com/800x400/?paramedics,emergency" alt="整然と活動する救急隊やDMATの後ろ姿">
+            </div>
+        </div>
+        <footer class="absolute bottom-8 right-12 text-gray-500">岡崎市消防本部指導救命士</footer>
+    </div>
+    
+    <!-- Slide 3: Why now? -->
+    <div class="slide w-[1024px] h-[768px] bg-white rounded-xl shadow-2xl p-16 my-8 relative flex flex-col">
+        <div class="w-full">
+            <h2 class="text-4xl font-bold text-blue-800 border-b-4 border-blue-800 pb-2 mb-8">なぜ「今」この研修が必要なのか？</h2>
+            <ul class="list-disc pl-8 space-y-6 text-2xl text-gray-800">
+                <li><strong class="text-red-600">国際イベントは「ソフトターゲット」</strong><br>世界中から注目が集まり、テロの標的になりやすい。不特定多数の観客、要人が集まり、一度のインシデントがMCIに直結する。</li>
+                <li class="mt-4"><strong class="text-red-600">求められるパラダイムシフト</strong><br>日常の救急活動の延長線上では対応できない。救急救命士には、高度な処置技術に加え、<strong class="text-red-600">現場指揮・管理能力</strong>が求められる。</li>
+            </ul>
+            <div class="w-full h-72 mt-12 mx-auto image-container">
+                <img src="https://source.unsplash.com/800x450/?stadium,crowd,security" alt="満員の観客席と警備にあたる警察官">
+            </div>
+        </div>
+        <footer class="absolute bottom-8 right-12 text-gray-500">岡崎市消防本部指導救命士</footer>
+    </div>
+    
+    <!-- Slide 4: Risks -->
+    <div class="slide w-[1024px] h-[768px] bg-white rounded-xl shadow-2xl p-16 my-8 relative flex flex-col">
+        <div class="absolute top-10 left-16 text-2xl text-gray-600 font-bold">第1章：大規模イベントの脅威とリスク</div>
+        <div class="w-full mt-16">
+            <h2 class="text-4xl font-bold text-blue-800 border-b-4 border-blue-800 pb-2 mb-8">想定される主なリスク</h2>
+            <ol class="list-decimal list-outside pl-8 space-y-4 text-3xl text-gray-800">
+                <li><strong class="text-red-600">テロリズム</strong> (爆発、銃撃、車両突入, CBRNEテロ)</li>
+                <li><strong class="text-red-600">群衆事故</strong> (雑踏事故（将棋倒し）、パニックによる二次被害)</li>
+                <li><strong class="text-red-600">環境要因</strong> (熱中症（選手、観客）、食中毒)</li>
+                <li><strong class="text-red-600">インフラへの攻撃</strong> (サイバー攻撃による通信・電力の麻痺 → 救急活動への直接的影響)</li>
+            </ol>
+            <div class="w-full h-56 mt-12 mx-auto image-container">
+                <img src="https://source.unsplash.com/800x300/?hazard,warning,signs" alt="様々なリスクをアイコンで分かりやすく表示">
+            </div>
+        </div>
+        <footer class="absolute bottom-8 right-12 text-gray-500">岡崎市消防本部指導救命士</footer>
+    </div>
+
+    <!-- Slide 5: Special Characteristics 1 -->
+    <div class="slide w-[1024px] h-[768px] bg-white rounded-xl shadow-2xl p-16 my-8 relative flex flex-col justify-center">
+        <h2 class="text-4xl font-bold text-blue-800 border-b-4 border-blue-800 pb-2 mb-8 text-left w-full">救急活動の特殊性① - 環境</h2>
+        <table class="w-full text-left text-xl border-collapse">
+            <thead>
+                <tr class="bg-blue-100">
+                    <th class="border border-gray-300 p-3 w-1/4">項目</th>
+                    <th class="border border-gray-300 p-3 w-1/4">日常の救急</th>
+                    <th class="border border-gray-300 p-3 w-1/2">大規模イベント</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="border border-gray-300 p-3 font-bold">現場</td>
+                    <td class="border border-gray-300 p-3">一般道、住宅</td>
+                    <td class="border border-gray-300 p-3"><strong class="text-red-600">広大で複雑な会場、厳しい立入制限</strong></td>
+                </tr>
+                <tr>
+                    <td class="border border-gray-300 p-3 font-bold">アクセス</td>
+                    <td class="border border-gray-300 p-3">比較的容易</td>
+                    <td class="border border-gray-300 p-3"><strong class="text-red-600">交通規制、検問、IDカード管理</strong></td>
+                </tr>
+                <tr>
+                    <td class="border border-gray-300 p-3 font-bold">通信</td>
+                    <td class="border border-gray-300 p-3">消防無線</td>
+                    <td class="border border-gray-300 p-3"><strong class="text-red-600">電波の輻輳</strong>、多機関共通無線の必要性</td>
+                </tr>
+                <tr>
+                    <td class="border border-gray-300 p-3 font-bold">対象</td>
+                    <td class="border border-gray-300 p-3">個人・少数</td>
+                    <td class="border border-gray-300 p-3">不特定多数の群衆、選手、<strong class="text-red-600">要人（VIP）</strong></td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="w-full h-56 mt-12 mx-auto image-container">
+            <img src="https://source.unsplash.com/800x300/?security,checkpoint" alt="会場周辺の交通規制や、IDカードを提示する様子のイラスト">
+        </div>
+        <footer class="absolute bottom-8 right-12 text-gray-500">岡崎市消防本部指導救命士</footer>
+    </div>
+    
+    <!-- Slide 6: Special Characteristics 2 -->
+    <div class="slide w-[1024px] h-[768px] bg-white rounded-xl shadow-2xl p-16 my-8 relative flex flex-col justify-center">
+        <h2 class="text-4xl font-bold text-blue-800 border-b-4 border-blue-800 pb-2 mb-8 text-left w-full">救急活動の特殊性② - 体制</h2>
+        <table class="w-full text-left text-xl border-collapse">
+            <thead>
+                <tr class="bg-blue-100">
+                    <th class="border border-gray-300 p-3 w-1/4">項目</th>
+                    <th class="border border-gray-300 p-3 w-1/4">日常の救急</th>
+                    <th class="border border-gray-300 p-3 w-1/2">大規模イベント</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="border border-gray-300 p-3 font-bold">指揮命令</td>
+                    <td class="border border-gray-300 p-3">消防組織内で完結</td>
+                    <td class="border border-gray-300 p-3"><strong class="text-red-600">多機関による合同指揮本部（ICS）</strong></td>
+                </tr>
+                <tr>
+                    <td class="border border-gray-300 p-3 font-bold">医療体制</td>
+                    <td class="border border-gray-300 p-3">救急隊と医療機関</td>
+                    <td class="border border-gray-300 p-3"><strong class="text-red-600">現場救護所、待機医師との連携が必須</strong></td>
+                </tr>
+            </tbody>
+        </table>
+        <p class="mt-12 text-2xl text-center font-bold">結論：我々は巨大なシステムの一部として機能しなければならない。</p>
+        <div class="w-full h-72 mt-8 mx-auto image-container">
+            <img src="https://source.unsplash.com/800x450/?command,center" alt="インシデント・コマンド・システム（ICS）の体制図">
+        </div>
+        <footer class="absolute bottom-8 right-12 text-gray-500">岡崎市消防本部指導救命士</footer>
+    </div>
+    
+    <!-- Slide 7: CSCATTT -->
+    <div class="slide w-[1024px] h-[768px] bg-white rounded-xl shadow-2xl p-16 my-8 relative flex flex-col">
+        <div class="absolute top-10 left-16 text-2xl text-gray-600 font-bold">第2章：MCI対応の原則「CSCATTT」</div>
+        <div class="w-full mt-16 flex flex-col items-center">
+            <h2 class="text-4xl font-bold text-blue-800 mb-6">CSCATTTとは？</h2>
+            <p class="text-2xl text-center mb-6">多数傷病者対応における活動原則。<br>この順番で思考・行動することが、現場の混乱を収束させる鍵となる。</p>
+            <table class="w-4/5 text-2xl border-collapse">
+                <tr class="bg-blue-800 text-white font-bold h-16"><td class="border-2 border-white text-center w-1/5">C</td><td class="border-2 border-white pl-4">Command (指揮)</td></tr>
+                <tr class="bg-red-700 text-white font-bold h-16"><td class="border-2 border-white text-center">S</td><td class="border-2 border-white pl-4">Safety (安全)</td></tr>
+                <tr class="bg-blue-800 text-white font-bold h-16"><td class="border-2 border-white text-center">C</td><td class="border-2 border-white pl-4">Communication (通信・連絡)</td></tr>
+                <tr class="bg-blue-800 text-white font-bold h-16"><td class="border-2 border-white text-center">A</td><td class="border-2 border-white pl-4">Assessment (評価)</td></tr>
+                <tr class="bg-yellow-500 text-black font-bold h-16"><td class="border-2 border-white text-center">T</td><td class="border-2 border-white pl-4">Triage (トリアージ)</td></tr>
+                <tr class="bg-yellow-500 text-black font-bold h-16"><td class="border-2 border-white text-center">T</td><td class="border-2 border-white pl-4">Treatment (治療)</td></tr>
+                <tr class="bg-yellow-500 text-black font-bold h-16"><td class="border-2 border-white text-center">T</td><td class="border-2 border-white pl-4">Transport (搬送)</td></tr>
+            </table>
+        </div>
+        <footer class="absolute bottom-8 right-12 text-gray-500">岡崎市消防本部指導救命士</footer>
+    </div>
+
+    <!-- Slide 8: Command -->
+    <div class="slide w-[1024px] h-[768px] bg-white rounded-xl shadow-2xl p-16 my-8 relative flex flex-col">
+        <h2 class="text-4xl font-bold text-blue-800 border-b-4 border-blue-800 pb-2 mb-8 w-full">C：Command (指揮)</h2>
+        <ul class="list-none space-y-4 text-2xl text-gray-800 w-full">
+            <li><strong class="text-blue-800">■ 最先着隊長の役割：</strong>最初の医療統括者（MCA）として機能する。</li>
+            <li class="mt-4"><strong class="text-blue-800">■ 実施項目：</strong>
+                <ul class="list-disc pl-10 mt-2 space-y-2">
+                    <li>現場指揮本部の設定（安全な場所を選定）</li>
+                    <li>後続隊への任務付与</li>
+                    <li>DMATや警察とのリエゾン（連絡員）を確立</li>
+                </ul>
+            </li>
+        </ul>
+        <p class="mt-12 text-2xl font-bold text-center w-full">意識：自分が現場の医療の<strong class="text-red-600">「頭脳」</strong>になる。</p>
+        <div class="w-full h-64 mt-8 mx-auto image-container">
+            <img src="https://source.unsplash.com/800x400/?firefighter,commander" alt="指揮をとる隊長のイラスト">
+        </div>
+        <footer class="absolute bottom-8 right-12 text-gray-500">岡崎市消防本部指導救命士</footer>
+    </div>
+
+    <!-- Slide 9: Safety -->
+    <div class="slide w-[1024px] h-[768px] bg-white rounded-xl shadow-2xl p-16 my-8 relative flex flex-col">
+        <h2 class="text-4xl font-bold text-red-700 border-b-4 border-red-700 pb-2 mb-8 w-full">S：Safety (安全)</h2>
+        <ul class="list-none space-y-4 text-2xl text-gray-800 w-full">
+            <li><strong class="text-red-700">■ 絶対原則：</strong>救助者の安全が確保されなければ、要救助者は救えない。</li>
+            <li class="mt-4"><strong class="text-red-700">■ 確認項目：</strong>
+                <ul class="list-disc pl-10 mt-2 space-y-2">
+                    <li>二次災害の危険性（不審物、建物の倒壊、化学剤）</li>
+                    <li>安全な活動エリア（グリーンゾーン）の設定</li>
+                    <li>警察と連携し、危険情報を共有</li>
+                </ul>
+            </li>
+        </ul>
+        <p class="mt-12 text-2xl font-bold text-center w-full">「急いで現場に進入したい」気持ちを抑え、一呼吸おく勇気。</p>
+        <div class="w-full h-64 mt-8 mx-auto image-container">
+            <img src="https://source.unsplash.com/800x400/?safety,helmet" alt="「安全第一」のヘルメットやベスト">
+        </div>
+        <footer class="absolute bottom-8 right-12 text-gray-500">岡崎市消防本部指導救命士</footer>
+    </div>
+
+    <!-- Slide 10: Communication & Assessment -->
+    <div class="slide w-[1024px] h-[768px] bg-white rounded-xl shadow-2xl p-16 my-8 relative flex flex-col">
+        <h2 class="text-4xl font-bold text-blue-800 border-b-4 border-blue-800 pb-2 mb-8 w-full">C & A (通信と評価)</h2>
+        <ul class="list-none space-y-8 text-2xl text-gray-800 w-full">
+            <li><strong class="text-blue-800 text-3xl">Communication (通信)：</strong>
+                <ul class="list-disc pl-10 mt-2 space-y-2">
+                    <li>司令センターへの<strong class="text-red-600">第一報</strong>が極めて重要。</li>
+                    <li>状況、被害規模、必要な応援を簡潔に報告（METHANE報告など）。</li>
+                </ul>
+            </li>
+            <li><strong class="text-blue-800 text-3xl">Assessment (評価)：</strong>
+                <ul class="list-disc pl-10 mt-2 space-y-2">
+                    <li>傷病者のおおよその人数と重症度を把握。</li>
+                    <li>必要な資源（救急隊、DMAT等）を判断し、応援要請。</li>
+                </ul>
+            </li>
+        </ul>
+        <div class="w-full h-64 mt-8 mx-auto image-container">
+            <img src="https://source.unsplash.com/800x400/?paramedic,radio,helicopter" alt="無線機で報告する隊員と、上空から現場を俯瞰するヘリコプター">
+        </div>
+        <footer class="absolute bottom-8 right-12 text-gray-500">岡崎市消防本部指導救命士</footer>
+    </div>
+
+    <!-- Slide 11: Triage -->
+    <div class="slide w-[1024px] h-[768px] bg-white rounded-xl shadow-2xl p-16 my-8 relative flex flex-col">
+        <h2 class="text-4xl font-bold text-yellow-600 border-b-4 border-yellow-600 pb-2 mb-8 w-full">T：Triage (トリアージ)</h2>
+        <ul class="list-disc pl-8 space-y-4 text-2xl text-gray-800 w-full">
+            <li><strong class="text-red-600">目的：救命の最大化。</strong></li>
+            <li>限られた医療資源を、最も救命効果の高い傷病者に集中させるための<strong class="text-red-600">「選別」</strong>。</li>
+            <li><strong class="font-bold">一次トリアージ：</strong>ホットゾーンで迅速に（歩行可能か？など）</li>
+            <li><strong class="font-bold">二次トリアージ：</strong>トリアージエリアで正確に（START法など）</li>
+            <li class="font-bold text-red-600">トリアージは治療ではない。</li>
+        </ul>
+        <div class="w-full h-72 mt-8 mx-auto image-container">
+            <img src="https://source.unsplash.com/800x450/?triage,training,disaster" alt="START法のフローチャート">
+        </div>
+        <footer class="absolute bottom-8 right-12 text-gray-500">岡崎市消防本部指導救命士</footer>
+    </div>
+
+    <!-- Slide 12: Treatment & Transport -->
+    <div class="slide w-[1024px] h-[768px] bg-white rounded-xl shadow-2xl p-16 my-8 relative flex flex-col">
+        <h2 class="text-4xl font-bold text-yellow-600 border-b-4 border-yellow-600 pb-2 mb-8 w-full">T & T (治療と搬送)</h2>
+        <ul class="list-none space-y-8 text-2xl text-gray-800 w-full">
+            <li><strong class="text-yellow-600 text-3xl">Treatment (治療)：</strong>
+                <ul class="list-disc pl-10 mt-2 space-y-2">
+                    <li>現場救護所にて、トリアージ区分ごとに行う。</li>
+                    <li>赤タッグ：DMATと連携し、救命に必要な最低限の処置を行う。</li>
+                    <li class="font-bold">ここでは<strong class="text-red-600">根治を目指さない。</strong></li>
+                </ul>
+            </li>
+            <li><strong class="text-yellow-600 text-3xl">Transport (搬送)：</strong>
+                <ul class="list-disc pl-10 mt-2 space-y-2">
+                    <li>搬送オフィサーによる<strong class="text-red-600">搬送統制</strong>が鍵。</li>
+                    <li>勝手な判断での搬送は、医療機関のパンクを招く。</li>
+                </ul>
+            </li>
+        </ul>
+        <div class="w-full h-64 mt-8 mx-auto image-container">
+            <img src="https://source.unsplash.com/800x400/?field,hospital,ambulance" alt="現場救護所のテントと、整然と並ぶ救急車">
+        </div>
+        <footer class="absolute bottom-8 right-12 text-gray-500">岡崎市消防本部指導救命士</footer>
+    </div>
+    
+    <!-- Slide 13: Zoning -->
+    <div class="slide w-[1024px] h-[768px] bg-white rounded-xl shadow-2xl p-16 my-8 relative flex flex-col">
+        <div class="absolute top-10 left-16 text-2xl text-gray-600 font-bold">第3章：現場医療体制の構築</div>
+        <div class="w-full mt-16">
+            <h2 class="text-4xl font-bold text-blue-800 border-b-4 border-blue-800 pb-2 mb-8">現場のエリア分け（ゾーニング）</h2>
+            <p class="text-2xl mb-6">カオスな現場を、機能ごとに整理する。</p>
+            <ol class="list-none space-y-4 text-2xl text-gray-800">
+                <li class="p-4 bg-red-100 rounded-lg"><strong class="text-red-700">ホットゾーン (Hot Zone):</strong> 発生現場。危険区域。救出と一次トリアージ。<strong class="font-bold">長居はしない。</strong></li>
+                <li class="p-4 bg-yellow-100 rounded-lg"><strong class="text-yellow-700">ウォームゾーン (Warm Zone):</strong> 除染などを行う中間地帯。</li>
+                <li class="p-4 bg-green-100 rounded-lg"><strong class="text-green-700">コールドゾーン (Cold Zone):</strong> 安全区域。<strong class="font-bold">全ての医療活動の拠点。</strong></li>
+            </ol>
+            <div class="w-full h-56 mt-8 mx-auto image-container">
+                <img src="https://source.unsplash.com/800x300/?disaster,drill,zone" alt="ホット・ウォーム・コールドの3つのゾーンを示した現場概念図">
+            </div>
+        </div>
+        <footer class="absolute bottom-8 right-12 text-gray-500">岡崎市消防本部指導救命士</footer>
+    </div>
+
+    <!-- Slide 14: Cold Zone Layout -->
+    <div class="slide w-[1024px] h-[768px] bg-white rounded-xl shadow-2xl p-16 my-8 relative flex flex-col justify-center">
+        <h2 class="text-4xl font-bold text-blue-800 border-b-4 border-blue-800 pb-2 mb-8 w-full">コールドゾーン内の機能配置</h2>
+        <p class="text-2xl text-center mb-6">傷病者の流れを<strong class="text-red-600">一方通行</strong>にすることが重要。</p>
+        <div class="text-xl text-center p-6 border-4 border-blue-700 rounded-lg bg-blue-50 font-mono">
+            [発生現場] → 救出 → [トリアージエリア] → [現場救護所（<span class="text-red-600 font-bold">赤</span>・<span class="text-yellow-500 font-bold">黄</span>・<span class="text-green-600 font-bold">緑</span>）] → [搬送エリア] → 医療機関
+        </div>
+        <div class="w-full h-80 mt-12 mx-auto image-container">
+            <img src="https://source.unsplash.com/800x500/?evacuation,drill" alt="上記テキストを流れ図にしたもの">
+        </div>
+        <footer class="absolute bottom-8 right-12 text-gray-500">岡崎市消防本部指導救命士</footer>
+    </div>
+    
+    <!-- Slide 15: Roles -->
+    <div class="slide w-[1024px] h-[768px] bg-white rounded-xl shadow-2xl p-16 my-8 relative flex flex-col">
+        <h2 class="text-4xl font-bold text-blue-800 border-b-4 border-blue-800 pb-2 mb-8 w-full">役割分担と指揮命令系統</h2>
+        <ul class="list-disc pl-8 space-y-4 text-2xl text-gray-800">
+            <li><strong class="text-blue-800">医療統括者 (MCA):</strong> 現場の医療活動のトップ。</li>
+            <li><strong class="text-blue-800">トリアージ・オフィサー:</strong> トリアージエリアの責任者。</li>
+            <li><strong class="text-blue-800">治療オフィサー:</strong> 現場救護所の責任者。</li>
+            <li><strong class="text-blue-800">搬送オフィサー:</strong> 搬送統制の責任者。</li>
+        </ul>
+        <p class="mt-12 text-2xl text-center font-bold">救急隊は、これらのオフィサーの指示のもと、各エリアで活動する。</p>
+        <div class="w-full h-72 mt-8 mx-auto image-container">
+            <img src="https://source.unsplash.com/800x450/?emergency,response,meeting" alt="各オフィサーと救急隊の位置関係を示した体制図">
+        </div>
+        <footer class="absolute bottom-8 right-12 text-gray-500">岡崎市消防本部指導救命士</footer>
+    </div>
+
+    <!-- Slide 16: DMAT intro -->
+    <div class="slide w-[1024px] h-[768px] bg-white rounded-xl shadow-2xl p-16 my-8 relative flex flex-col">
+        <div class="absolute top-10 left-16 text-2xl text-gray-600 font-bold">第4章：多機関連携の要点</div>
+        <div class="w-full mt-16">
+            <h2 class="text-4xl font-bold text-blue-800 border-b-4 border-blue-800 pb-2 mb-8">DMATとは？</h2>
+            <p class="text-2xl font-bold text-gray-700"><strong class="text-blue-700">D</strong>isaster <strong class="text-blue-700">M</strong>edical <strong class="text-blue-700">A</strong>ssistance <strong class="text-blue-700">T</strong>eam （災害派遣医療チーム）</p>
+            <ul class="list-disc pl-8 space-y-4 text-2xl text-gray-800 mt-6">
+                <li>医師、看護師、業務調整員で構成される自己完結型の医療チーム。</li>
+                <li><strong class="font-bold">役割：</strong>現場救護所の開設・運営、広域医療搬送、病院支援</li>
+            </ul>
+            <p class="mt-12 text-2xl text-center font-bold">我々にとって、現場で協働する<strong class="text-red-600">最も重要な医療パートナー</strong>。</p>
+            <div class="w-full h-56 mt-8 mx-auto image-container">
+                <img src="https://source.unsplash.com/800x300/?doctor,disaster,medical,team" alt="DMATのロゴと、活動中のDMAT隊員の写真">
+            </div>
+        </div>
+        <footer class="absolute bottom-8 right-12 text-gray-500">岡崎市消防本部指導救命士</footer>
+    </div>
+
+    <!-- Slide 17: DMAT Collaboration -->
+    <div class="slide w-[1024px] h-[768px] bg-white rounded-xl shadow-2xl p-16 my-8 relative flex flex-col">
+        <h2 class="text-4xl font-bold text-blue-800 border-b-4 border-blue-800 pb-2 mb-8 w-full">DMATとの連携</h2>
+        <ul class="list-none space-y-8 text-2xl text-gray-800 w-full">
+            <li><strong class="text-blue-800 text-3xl">DMAT到着時：</strong>
+                <ul class="list-disc pl-10 mt-2 space-y-2">
+                    <li>正確な状況ブリーフィングが<strong class="text-red-600">最重要</strong>。</li>
+                </ul>
+            </li>
+            <li><strong class="text-blue-800 text-3xl">活動中：</strong>
+                <ul class="list-disc pl-10 mt-2 space-y-2">
+                    <li>医師の指示のもと、治療補助や特定行為を実施。</li>
+                    <li>彼らの<strong class="text-red-600">「目・耳・手」</strong>として動く。</li>
+                </ul>
+            </li>
+        </ul>
+        <div class="w-full h-80 mt-12 mx-auto image-container">
+            <img src="https://source.unsplash.com/800x500/?paramedics,talking,team" alt="救急隊員とDMAT隊員が情報共有している様子の写真やイラスト">
+        </div>
+        <footer class="absolute bottom-8 right-12 text-gray-500">岡崎市消防本部指導救命士</footer>
+    </div>
+
+    <!-- Slide 18: Police Collaboration -->
+    <div class="slide w-[1024px] h-[768px] bg-white rounded-xl shadow-2xl p-16 my-8 relative flex flex-col">
+        <h2 class="text-4xl font-bold text-blue-800 border-b-4 border-blue-800 pb-2 mb-8 w-full">警察との連携</h2>
+        <ul class="list-none space-y-8 text-2xl text-gray-800 w-full">
+            <li><strong class="text-blue-800 text-3xl">役割分担の明確化</strong>
+                <ul class="list-disc pl-10 mt-2 space-y-2">
+                    <li><strong class="text-gray-900">警察：</strong>現場の安全確保、交通規制、避難誘導</li>
+                    <li><strong class="text-red-600">消防・救急：</strong>人命救助、医療活動</li>
+                </ul>
+            </li>
+            <li><strong class="text-blue-800 text-3xl">連携ポイント：</strong>
+                <ul class="list-disc pl-10 mt-2 space-y-2">
+                    <li>安全確保のための情報共有（不審物情報など）</li>
+                    <li>救急車両の進入・退出路（緊急走行路）の確保依頼</li>
+                </ul>
+            </li>
+        </ul>
+        <div class="w-full h-72 mt-8 mx-auto image-container">
+            <img src="https://source.unsplash.com/800x450/?police,firefighter" alt="警察官と消防士が連携して活動している写真">
+        </div>
+        <footer class="absolute bottom-8 right-12 text-gray-500">岡崎市消防本部指導救命士</footer>
+    </div>
+
+    <!-- Slide 19: Medical Institutions Collaboration -->
+    <div class="slide w-[1024px] h-[768px] bg-white rounded-xl shadow-2xl p-16 my-8 relative flex flex-col">
+        <h2 class="text-4xl font-bold text-blue-800 border-b-4 border-blue-800 pb-2 mb-8 w-full">医療機関との連携</h2>
+        <ul class="list-none space-y-8 text-2xl text-gray-800 w-full">
+            <li><strong class="text-blue-800 text-3xl">搬送コーディネーション</strong>
+                <ul class="list-disc pl-10 mt-2 space-y-2">
+                    <li>搬送オフィサー（または司令センター）が一元的に管理。</li>
+                    <li><strong class="font-bold">ホットライン</strong>などを活用し、受入可否を確認。</li>
+                </ul>
+            </li>
+            <li><strong class="text-red-700 text-3xl">やってはいけないこと：</strong>
+                <ul class="list-disc pl-10 mt-2 space-y-2">
+                    <li>個々の救急隊が独自に判断し、近隣の救命センターに次々と搬送する。<br>→ <strong class="font-bold">システムの崩壊</strong>を招く。</li>
+                </ul>
+            </li>
+        </ul>
+        <div class="w-full h-72 mt-8 mx-auto image-container">
+            <img src="https://source.unsplash.com/800x450/?hospital,emergency,room" alt="病院の救急外来（ER）のイラスト">
+        </div>
+        <footer class="absolute bottom-8 right-12 text-gray-500">岡崎市消防本部指導救命士</footer>
+    </div>
+
+    <!-- Slide 20: Otomo Quote 1 -->
+    <div class="slide w-[1024px] h-[768px] bg-white rounded-xl shadow-2xl p-16 my-8 relative flex flex-col justify-center">
+        <div class="absolute top-10 left-16 text-2xl text-gray-600 font-bold">第5章：専門家の視点 - テロ災害医療の権威から学ぶ</div>
+        <div class="w-full mt-16">
+            <h2 class="text-4xl font-bold text-blue-800 mb-2">大友 康裕 教授の教え①</h2>
+            <p class="text-right text-lg text-gray-600 mb-6">(大友康裕 東京医科歯科大学大学院 教授)</p>
+            <div class="bg-blue-50 border-l-8 border-blue-600 p-8 my-4">
+                <p class="text-3xl font-bold text-blue-900">「テロは"人為的に仕掛けられた災害"である」</p>
+                <p class="mt-4 text-2xl text-gray-800">二次災害、三次災害が計画的に引き起こされる危険性がある。活動の絶対原則は<strong class="text-red-600">「Safety First（安全第一）」</strong>。救助者自身が次の標的になりうることを、決して忘れてはならない。</p>
+            </div>
+            <div class="w-full h-56 mt-8 mx-auto image-container">
+                <img src="https://source.unsplash.com/800x300/?warning,sign" alt="注意を促す警告サインのイラスト">
+            </div>
+        </div>
+        <footer class="absolute bottom-8 right-12 text-gray-500">岡崎市消防本部指導救命士</footer>
+    </div>
+
+    <!-- Slide 21: Otomo Quote 2 -->
+    <div class="slide w-[1024px] h-[768px] bg-white rounded-xl shadow-2xl p-16 my-8 relative flex flex-col justify-center">
+        <h2 class="text-4xl font-bold text-blue-800 mb-6 w-full">大友 康裕 教授の教え②</h2>
+        <div class="bg-blue-50 border-l-8 border-blue-600 p-8 my-4">
+            <p class="text-3xl font-bold text-blue-900">「現場医療の主役は消防・救急（Fire & EMS）である」</p>
+            <p class="mt-4 text-2xl text-gray-800">DMATはあくまで"支援者"。現場を最初に掌握し、<strong class="text-red-600">初動体制を構築するのは、最先着の消防・救急</strong>。その質が、その後の全ての医療活動の成否を決定づける。</p>
+        </div>
+        <div class="w-full h-72 mt-8 mx-auto image-container">
+            <img src="https://source.unsplash.com/800x450/?ambulance,arriving,scene" alt="現場に一番乗りで到着した救急車の写真">
+        </div>
+        <footer class="absolute bottom-8 right-12 text-gray-500">岡崎市消防本部指導救命士</footer>
+    </div>
+
+    <!-- Slide 22: Otomo Quote 3 -->
+    <div class="slide w-[1024px] h-[768px] bg-white rounded-xl shadow-2xl p-16 my-8 relative flex flex-col justify-center">
+        <h2 class="text-4xl font-bold text-blue-800 mb-6 w-full">大友 康裕 教授の教え③</h2>
+        <div class="bg-blue-50 border-l-8 border-blue-600 p-8 my-4">
+            <p class="text-3xl font-bold text-blue-900">「究極の対策は"顔の見える関係"に尽きる」</p>
+            <p class="mt-4 text-2xl text-gray-800">災害現場で初めて会う人々と、円滑な連携はできない。<strong class="text-red-600">平時からの合同訓練</strong>が最大の防災・減災対策。警察、DMAT、行政、医療機関と、平時から互いを理解し、信頼関係を築くことが重要。</p>
+        </div>
+        <div class="w-full h-72 mt-8 mx-auto image-container">
+            <img src="https://source.unsplash.com/800x450/?emergency,drill,meeting" alt="多機関合同訓練で、参加者が笑顔で話し合っている様子の写真">
+        </div>
+        <footer class="absolute bottom-8 right-12 text-gray-500">岡崎市消防本部指導救命士</footer>
+    </div>
+    
+    <!-- Slide 23: Case Study -->
+    <div class="slide w-[1024px] h-[768px] bg-white rounded-xl shadow-2xl p-16 my-8 relative flex flex-col">
+        <h2 class="text-4xl font-bold text-blue-800 border-b-4 border-blue-800 pb-2 mb-8 w-full">【ケーススタディ】ボストンマラソン爆弾テロ事件</h2>
+        <ul class="list-none space-y-4 text-2xl text-gray-800 w-full">
+            <li><strong class="text-blue-800">■ 発生：</strong>2013年、ゴール付近で2度の爆発。死者3名、負傷者260名以上。</li>
+            <li class="mt-4"><strong class="text-blue-800">■ 教訓：</strong>
+                <ul class="list-disc pl-10 mt-2 space-y-2">
+                    <li><strong class="text-red-600">止血帯（ターニケット）の有効性："Stop the Bleed"</strong>の概念が普及。</li>
+                    <li><strong class="text-red-600">既存医療体制の活用：</strong>ゴール地点の医療テントが即座に第1救護所として機能。</li>
+                    <li><strong class="text-red-600">通信の混乱：</strong>携帯電話網が麻痺。多重な通信手段の確保が課題に。</li>
+                </ul>
+            </li>
+        </ul>
+        <div class="w-full h-72 mt-8 mx-auto image-container">
+            <img src="https://source.unsplash.com/800x450/?marathon,finish,line" alt="ボストンマラソンの現場写真">
+        </div>
+        <footer class="absolute bottom-8 right-12 text-gray-500">岡崎市消防本部指導救命士</footer>
+    </div>
+
+    <!-- Slide 24: Summary -->
+    <div class="slide w-[1024px] h-[768px] bg-white rounded-xl shadow-2xl p-16 my-8 relative flex flex-col">
+        <div class="absolute top-10 left-16 text-2xl text-gray-600 font-bold">第6章：まとめ</div>
+        <div class="w-full mt-16">
+            <h2 class="text-4xl font-bold text-blue-800 border-b-4 border-blue-800 pb-2 mb-8">救急救命士に求められる3つの視点</h2>
+            <ol class="list-decimal list-outside pl-8 space-y-6 text-3xl text-gray-800">
+                <li><strong class="text-blue-800">全体最適の視点</strong><br><span class="text-2xl">目の前の1人だけでなく、現場全体の傷病者を救うために何をすべきか考える。</span></li>
+                <li><strong class="text-blue-800">マネジメントの意識</strong><br><span class="text-2xl">後続隊や他機関が活動しやすいように、現場を組織化する。</span></li>
+                <li><strong class="text-blue-800">コミュニケーションのハブとなる意識</strong><br><span class="text-2xl">各機関をつなぐ情報伝達の中核を担う。</span></li>
+            </ol>
+            <div class="w-full h-56 mt-10 mx-auto image-container">
+                <img src="https://source.unsplash.com/800x300/?gears,teamwork" alt="3つの視点を歯車のように組み合わせたイラスト">
+            </div>
+        </div>
+        <footer class="absolute bottom-8 right-12 text-gray-500">岡崎市消防本部指導救命士</footer>
+    </div>
+
+    <!-- Slide 25: For Asian Para Games -->
+    <div class="slide w-[1024px] h-[768px] bg-white rounded-xl shadow-2xl p-16 my-8 relative flex flex-col justify-center">
+        <h2 class="text-4xl font-bold text-blue-800 border-b-4 border-blue-800 pb-2 mb-8 w-full">アジアパラ競技大会に向けて</h2>
+        <ul class="list-disc pl-8 space-y-4 text-2xl text-gray-800 w-full">
+            <li><strong class="text-blue-800">パラアスリートへの配慮</strong><br>障がいの特性を理解し、コミュニケーションや処置、トリアージにおいて特別な配慮が必要な場合があることを認識する。（例：コミュニケーション障がい、麻痺による感覚の違いなど）</li>
+        </ul>
+        <p class="mt-12 text-3xl text-center font-bold">大会の成功は、<strong class="text-red-600">安全・安心の確保</strong>が土台となる。</p>
+        <div class="w-full h-72 mt-8 mx-auto image-container">
+            <img src="https://source.unsplash.com/800x450/?paralympic,wheelchair,race" alt="車いすの選手や義足の選手が競技している写真">
+        </div>
+        <footer class="absolute bottom-8 right-12 text-gray-500">岡崎市消防本部指導救命士</footer>
+    </div>
+
+    <!-- Slide 26: Simulation -->
+    <div class="slide w-[1024px] h-[768px] bg-white rounded-xl shadow-2xl p-16 my-8 relative flex flex-col justify-center">
+        <h2 class="text-4xl font-bold text-blue-800 border-b-4 border-blue-800 pb-2 mb-8 w-full">【シミュレーション】もし、あなたの隊が最先着したら？</h2>
+        <div class="bg-yellow-50 border-l-8 border-yellow-500 p-8 my-4 w-full">
+            <p class="text-2xl font-bold text-yellow-800">状況付与：</p>
+            <p class="mt-2 text-2xl text-gray-800">「〇月〇日 14時30分、アジアパラ競技大会メインスタジアム前広場にて爆発音。多数の負傷者ありとの通報」</p>
+        </div>
+        <ul class="list-disc pl-8 space-y-6 text-3xl text-gray-800 mt-10 w-full">
+            <li>あなた（隊長）が、司令センターに送るべき第一報は？</li>
+            <li>隊員2名に、まず何を指示するか？</li>
+        </ul>
+        <p class="mt-10 text-2xl text-center text-gray-600">（グループワーク形式など）</p>
+        <footer class="absolute bottom-8 right-12 text-gray-500">岡崎市消防本部指導救命士</footer>
+    </div>
+
+    <!-- Slide 27: Simulation Points -->
+    <div class="slide w-[1024px] h-[768px] bg-white rounded-xl shadow-2xl p-16 my-8 relative flex flex-col justify-center">
+        <h2 class="text-4xl font-bold text-blue-800 border-b-4 border-blue-800 pb-2 mb-8 w-full">シミュレーションのポイント</h2>
+        <div class="space-y-8 text-xl text-gray-800 w-full">
+            <div>
+                <p class="text-2xl font-bold text-blue-800">第一報（METHANE報告の例）：</p>
+                <p class="mt-2 p-4 bg-gray-100 rounded-md">「こちら〇〇救急。メインスタジアム前で<strong class="text-red-600">爆発事案（Major Incident）</strong>。<strong>現場への進入は危険（Hazard）</strong>。<strong>アクセス路（Access）</strong>は〇〇通りから。<strong>傷病者（Number）</strong>は推定30名以上。<strong>救急隊（Emergency Services）</strong>は最低10隊、DMATの出動を要請。」</p>
+            </div>
+            <div>
+                <p class="text-2xl font-bold text-blue-800">隊員への指示：</p>
+                <p class="mt-2 p-4 bg-gray-100 rounded-md">「隊員Aは、安全な場所から双眼鏡で現場を観察し、状況を報告せよ」<br>「隊員Bは、警察と接触し、安全なエリアと危険情報を確認せよ」</p>
+            </div>
+        </div>
+        <footer class="absolute bottom-8 right-12 text-gray-500">岡崎市消防本部指導救命士</footer>
+    </div>
+
+    <!-- Slide 28: Preparation -->
+    <div class="slide w-[1024px] h-[768px] bg-white rounded-xl shadow-2xl p-16 my-8 relative flex flex-col justify-center">
+        <h2 class="text-4xl font-bold text-blue-800 border-b-4 border-blue-800 pb-2 mb-8 w-full">平時からの備え</h2>
+        <ul class="list-disc pl-8 space-y-6 text-3xl text-gray-800 w-full">
+            <li><strong class="text-blue-800">知識の習得：</strong>本日のような研修、関連マニュアルの熟読。</li>
+            <li><strong class="text-blue-800">訓練の実施：</strong>多機関合同訓練への積極的参加。</li>
+            <li><strong class="text-blue-800">資機材の確認：</strong>トリアージタッグ、多数傷病者対応バッグ等の定期点検。</li>
+            <li><strong class="text-blue-800">体力・精神力の錬成：</strong>過酷な現場でも活動を継続できる心身を維持する。</li>
+        </ul>
+        <div class="w-full h-64 mt-8 mx-auto image-container">
+            <img src="https://source.unsplash.com/800x400/?firefighter,training" alt="日々の消防署での活動風景">
+        </div>
+        <footer class="absolute bottom-8 right-12 text-gray-500">岡崎市消防本部指導救命士</footer>
+    </div>
+    
+    <!-- Slide 29: Final Summary -->
+    <div class="slide w-[1024px] h-[768px] bg-white rounded-xl shadow-2xl p-16 my-8 relative flex flex-col justify-center">
+        <h2 class="text-4xl font-bold text-blue-800 border-b-4 border-blue-800 pb-2 mb-8 w-full">総括</h2>
+        <ul class="list-disc pl-8 space-y-6 text-2xl text-gray-800 w-full">
+            <li>大規模イベントにおけるMCI対応は、消防・救急がその<strong class="text-red-600">初動の成否を担う</strong>。</li>
+            <li><strong class="text-red-600">CSCATTT</strong>を原則とし、<strong class="text-red-600">安全</strong>を最優先に、<strong class="text-red-600">組織的</strong>な活動を展開する。</li>
+            <li>究極の対策は<strong class="text-red-600">「顔の見える関係」</strong>。平時からの多機関連携が鍵となる。</li>
+        </ul>
+        <p class="mt-12 text-3xl text-center font-bold">アジアパラ競技大会の成功を、安全の面から支えるという誇りを持って任務に臨もう。</p>
+        <div class="w-full h-64 mt-8 mx-auto image-container">
+            <img src="https://source.unsplash.com/800x400/?teamwork,rescue,workers" alt="様々な機関の人々が協力するイメージイラスト">
+        </div>
+        <footer class="absolute bottom-8 right-12 text-gray-500">岡崎市消防本部指導救命士</footer>
+    </div>
+
+    <!-- Slide 30: Thank you -->
+    <div class="slide w-[1024px] h-[768px] bg-white rounded-xl shadow-2xl p-16 my-8 relative flex flex-col justify-center items-center">
+        <div class="w-full text-center">
+            <h1 class="text-6xl font-bold text-blue-900">ご清聴ありがとうございました</h1>
+            <p class="mt-12 text-5xl text-gray-700">質疑応答</p>
+        </div>
+        <footer class="absolute bottom-8 right-12 text-gray-500">岡崎市消防本部指導救命士</footer>
+    </div>
+
+</body>
+</html>

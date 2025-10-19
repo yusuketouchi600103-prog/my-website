@@ -3,25 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>多数傷病者対応 教育・訓練アプリケーション</title>
+    <title>多数傷病者対応訓練</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
-    <!-- Chosen Palette: Calm Emergency Response -->
-    <!-- Application Structure Plan: 本アプリケーションは、リニアなスライド形式ではなく、テーマ別のセクションに分かれたSPA（シングルページアプリケーション）構造を採用しました。理由は、学習者が全体の流れを把握しつつ、必要な項目へすぐにアクセスできる利便性を提供するためです。構成は「基礎知識」→「初動対応フロー（インタラクティブ）」→「トリアージ訓練（実践）」→「具体的シナリオ」→「参考情報」と段階的に理解が深まるように設計されています。この構造により、体系的な学習と、現場でのクイックリファレンスの両方のニーズに応えることを目指しました。 -->
-    <!-- Visualization & Content Choices: 報告書情報 -> 目標 -> 可視化/表現方法 -> インタラクション -> 正当化 -> ライブラリ/手法
-1. 初動対応手順 -> 整理/情報提供 -> HTML/CSSによるインタラクティブなフローチャート -> クリックで詳細表示 -> 複雑なプロセスを段階的に学習可能にするため -> Tailwind CSS
-2. トリアージカテゴリー別人数 -> 比較/情報提供 -> ドーナツグラフ -> ホバーで詳細表示 -> 事案の全体像（重症度分布）を視覚的に素早く把握するため -> Chart.js
-3. 傷病者評価 -> 学習定着 -> クイズ形式のインタラクティブカード -> ボタンクリックでトリアージタッグを選択 -> 受動的な学習より能動的な実践が記憶定着に繋がるため -> Vanilla JS
-4. 岡崎中央総合公園の現場配置 -> 整理/情報提供 -> HTML/CSS Divによる簡易図 -> クリックで情報表示 -> 画像や外部ライブラリに依存せず、特定のシナリオにおける空間的関係を理解しやすくするため -> Tailwind CSS
-5. 近隣医療機関リスト -> 情報提供/参照 -> HTMLテーブル -> フィルタリング機能 -> 緊急時に必要な情報を迅速に絞り込めるようにするため -> Vanilla JS -->
-    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
     <style>
         body {
             font-family: 'Noto Sans JP', sans-serif;
             background-color: #f8f9fa;
         }
-        .section-card {
+       .section-card {
             background-color: white;
             border-radius: 0.75rem;
             padding: 2rem;
@@ -29,19 +20,19 @@
             box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
             transition: all 0.3s ease-in-out;
         }
-        .nav-link {
+       .nav-link {
             padding: 0.5rem 1rem;
             border-radius: 0.5rem;
             transition: background-color 0.3s, color 0.3s;
             cursor: pointer;
             color: #4b5563;
         }
-        .nav-link.active {
+       .nav-link.active {
             background-color: #1e40af;
             color: white;
             font-weight: 700;
         }
-        .flowchart-step {
+       .flowchart-step {
             border: 2px solid #e5e7eb;
             padding: 1rem;
             border-radius: 0.5rem;
@@ -49,45 +40,45 @@
             transition: all 0.2s;
             position: relative;
         }
-        .flowchart-step:hover {
+       .flowchart-step:hover {
             border-color: #3b82f6;
             background-color: #eff6ff;
         }
-        .flowchart-step .details {
+       .flowchart-step .details {
             display: none;
             margin-top: 1rem;
             padding: 1rem;
             background-color: #f9fafb;
             border-radius: 0.5rem;
         }
-        .flowchart-arrow {
+       .flowchart-arrow {
             font-size: 2rem;
             color: #9ca3af;
         }
-        .triage-tag {
+       .triage-tag {
             padding: 0.5rem 1rem;
             border-radius: 9999px;
             font-weight: 700;
             cursor: pointer;
             transition: transform 0.2s;
         }
-        .triage-tag:hover {
+       .triage-tag:hover {
             transform: scale(1.05);
         }
-        .tag-red { background-color: #ef4444; color: white; }
-        .tag-yellow { background-color: #f59e0b; color: white; }
-        .tag-green { background-color: #22c55e; color: white; }
-        .tag-black { background-color: #374151; color: white; }
-        .feedback-correct { color: #22c55e; }
-        .feedback-incorrect { color: #ef4444; }
-        .venue-map-item {
+       .tag-red { background-color: #ef4444; color: white; }
+       .tag-yellow { background-color: #f59e0b; color: white; }
+       .tag-green { background-color: #22c55e; color: white; }
+       .tag-black { background-color: #374151; color: white; }
+       .feedback-correct { color: #22c55e; }
+       .feedback-incorrect { color: #ef4444; }
+       .venue-map-item {
             border: 2px dashed #9ca3af;
             padding: 1rem;
             text-align: center;
             border-radius: 0.5rem;
             font-weight: bold;
         }
-        .chart-container {
+       .chart-container {
             position: relative;
             width: 100%;
             max-width: 400px;
@@ -102,7 +93,7 @@
 
     <header class="bg-white shadow-md sticky top-0 z-50">
         <div class="container mx-auto px-4 py-3 flex justify-between items-center">
-            <h1 class="text-xl md:text-2xl font-bold text-blue-800">多数傷病者対応 教育・訓練アプリ</h1>
+            <h1 class="text-xl md:text-2xl font-bold text-blue-800">多数傷病者対応訓練</h1>
             <div class="hidden md:flex space-x-2">
                 <a href="#intro" class="nav-link">はじめに</a>
                 <a href="#basics" class="nav-link">基礎知識</a>
@@ -191,17 +182,18 @@
                         <p class="font-semibold">【行動内容】</p>
                         <ul class="list-disc list-inside text-sm space-y-1">
                             <li>無線で「多数傷病者発生事案」であることを宣言する。</li>
-                            <li>簡潔明瞭に、必要な情報を盛り込み第一報を送信する (METHANE report)。</li>
-                            <li><strong>M</strong> (Major incident declaration): 多数傷病者事案発生</li>
-                            <li><strong>E</strong> (Exact location): 正確な場所</li>
-                            <li><strong>T</strong> (Type of incident): 事案種別（例：列車脱線、爆発）</li>
-                            <li><strong>H</strong> (Hazards): 危険有害物の有無</li>
-                            <li><strong>A</strong> (Access): 現場への進入経路</li>
-                            <li><strong>N</strong> (Number of casualties): 傷病者数</li>
-                            <li><strong>E</strong> (Emergency services): 他に必要な機関（警察、消防、DMAT等）</li>
+                            <li>簡潔明瞭に、必要な情報を盛り込み第一報を送信する (すしあんじょうほうようばしょとり)。</li>
+                            <li><strong>す</strong>: 種別 (事案の種別)</li>
+                            <li><strong>し</strong>: 死傷者 (死傷者の概数)</li>
+                            <li><strong>あん</strong>: 安全 (危険の有無、ハザード情報)</li>
+                            <li><strong>じょう</strong>: 状況 (現場の活動状況、概要)</li>
+                            <li><strong>ほう</strong>: 方針 (現場での活動方針)</li>
+                            <li><strong>よう</strong>: 要請 (応援隊、DMAT等の要請)</li>
+                            <li><strong>ばしょ</strong>: 場所 (発生場所、進入路、指揮本部位置)</li>
+                            <li><strong>とり</strong>: トリアージ (トリアージ結果の概況)</li>
                         </ul>
                          <p class="font-semibold mt-3">【読み上げ原稿例】</p>
-                        <p class="text-sm p-2 bg-gray-100 rounded">『こちら岡崎救急1、司令センター。岡崎市〇〇町、アジアパラ大会会場で多数傷病者事案発生。種別は爆発。二次災害の危険は今のところなし。国道1号線から進入可能。傷病者約20名。全救急隊、消防隊、DMATの出動を要請する。』</p>
+                        <p class="text-sm p-2 bg-gray-100 rounded">『こちら岡崎救急1、指令センター。岡崎市〇〇町、アジアパラ大会会場で多数傷病者事案発生。種別は爆発。二次災害の危険は今のところなし。国道1号線から進入可能。傷病者約20名。全救急隊、消防隊、DMATの出動を要請する。』</p>
                     </div>
                 </div>
                 <div class="text-center flowchart-arrow">⬇️</div>
@@ -239,10 +231,22 @@
 
         <section id="drill" class="section-card scroll-mt-20">
             <h2 class="text-2xl font-bold text-blue-700 mb-4">トリアージ訓練：START法に基づく判断</h2>
-            <p class="mb-6">以下の傷病者の状態を読み、適切なトリアージタッグを選択してください。選択後に解説が表示されます。</p>
-            <div id="triage-drill-container" class="space-y-6"></div>
-            <div class="text-center mt-6">
-                <button id="next-drill-button" class="bg-blue-600 text-white font-bold py-2 px-6 rounded-lg hover:bg-blue-700 transition">次の問題へ</button>
+            <div id="triage-drill-wrapper">
+                <div id="triage-question-view">
+                    <p class="mb-6">以下の傷病者の状態を読み、適切なトリアージタッグを選択してください。</p>
+                    <div id="triage-drill-container" class="space-y-6"></div>
+                    <div class="text-center mt-6">
+                        <button id="advance-drill-button" class="bg-blue-600 text-white font-bold py-2 px-6 rounded-lg hover:bg-blue-700 transition hidden">次へ</button>
+                    </div>
+                </div>
+                <div id="triage-results-view" class="hidden text-center">
+                    <h3 class="text-2xl font-bold mb-4">訓練結果</h3>
+                    <div id="result-message" class="p-4 rounded-lg mb-2 font-bold text-lg"></div>
+                    <p id="result-sub-message" class="mt-2 mb-4 text-gray-700"></p>
+                    <p class="text-lg mb-2">正答数: <span id="final-score" class="font-bold"></span></p>
+                    <p class="text-lg mb-4">所要時間: <span id="total-time" class="font-bold"></span></p>
+                    <button id="restart-drill-button" class="font-bold py-2 px-6 rounded-lg transition text-white">もう一度挑戦</button>
+                </div>
             </div>
         </section>
 
@@ -285,40 +289,46 @@
 
         <section id="hospitals" class="section-card scroll-mt-20">
             <h2 class="text-2xl font-bold text-blue-700 mb-4">岡崎市および近隣の主要救急医療機関</h2>
-            <p class="mb-6">多数傷病者発生時には、司令センターの指示に基づき、各医療機関へ傷病者を分散搬送します。現場から比較的近く、三次救急や重症者対応が可能な主要機関を把握しておくことが重要です。</p>
+            <p class="mb-6">多数傷病者発生時には、指令センターの指示に基づき、各医療機関へ傷病者を分散搬送します。現場から比較的近く、三次救急や重症者対応が可能な主要機関を把握しておくことが重要です。</p>
             <div class="overflow-x-auto">
                 <table class="w-full text-left border-collapse">
                     <thead class="bg-gray-200">
                         <tr>
                             <th class="p-3 font-bold uppercase text-gray-600 border border-gray-300">医療機関名</th>
                             <th class="p-3 font-bold uppercase text-gray-600 border border-gray-300">所在地</th>
+                            <th class="p-3 font-bold uppercase text-gray-600 border border-gray-300">現場からの距離(目安)</th>
                             <th class="p-3 font-bold uppercase text-gray-600 border border-gray-300">特記事項</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr class="hover:bg-gray-50">
-                            <td class="p-3 border border-gray-300">藤田医科大学 岡崎医療センター</td>
-                            <td class="p-3 border border-gray-300">岡崎市</td>
-                            <td class="p-3 border border-gray-300">救命救急センター（三次救急）</td>
-                        </tr>
-                        <tr class="hover:bg-gray-50">
                             <td class="p-3 border border-gray-300">岡崎市民病院</td>
                             <td class="p-3 border border-gray-300">岡崎市</td>
+                            <td class="p-3 border border-gray-300">約6km</td>
                             <td class="p-3 border border-gray-300">地域救命救急センター（三次救急）</td>
+                        </tr>
+                        <tr class="hover:bg-gray-50">
+                            <td class="p-3 border border-gray-300">藤田医科大学 岡崎医療センター</td>
+                            <td class="p-3 border border-gray-300">岡崎市</td>
+                            <td class="p-3 border border-gray-300">約11km</td>
+                            <td class="p-3 border border-gray-300">二次救急医療機関</td>
                         </tr>
                          <tr class="hover:bg-gray-50">
                             <td class="p-3 border border-gray-300">安城更生病院</td>
                             <td class="p-3 border border-gray-300">安城市</td>
-                            <td class="p-3 border border-gray-300">救命救急センター（三次救急）</td>
-                        </tr>
-                        <tr class="hover:bg-gray-50">
-                            <td class="p-3 border border-gray-300">豊田厚生病院</td>
-                            <td class="p-3 border border-gray-300">豊田市</td>
+                            <td class="p-3 border border-gray-300">約16km</td>
                             <td class="p-3 border border-gray-300">救命救急センター（三次救急）</td>
                         </tr>
                         <tr class="hover:bg-gray-50">
                             <td class="p-3 border border-gray-300">トヨタ記念病院</td>
                             <td class="p-3 border border-gray-300">豊田市</td>
+                            <td class="p-3 border border-gray-300">約19km</td>
+                            <td class="p-3 border border-gray-300">救命救急センター（三次救急）</td>
+                        </tr>
+                        <tr class="hover:bg-gray-50">
+                            <td class="p-3 border border-gray-300">豊田厚生病院</td>
+                            <td class="p-3 border border-gray-300">豊田市</td>
+                            <td class="p-3 border border-gray-300">約20km</td>
                             <td class="p-3 border border-gray-300">救命救急センター（三次救急）</td>
                         </tr>
                     </tbody>
@@ -385,112 +395,169 @@
                 step.addEventListener('click', () => {
                     const details = step.querySelector('.details');
                     const isVisible = details.style.display === 'block';
-                    // Hide all details first
                     document.querySelectorAll('.flowchart-step .details').forEach(d => d.style.display = 'none');
-                    // Toggle current one
-                    details.style.display = isVisible ? 'none' : 'block';
+                    details.style.display = isVisible? 'none' : 'block';
                 });
             });
-
-            // Triage Drill
-            const drillData = [
-                { 
-                    scenario: "30代男性、呼びかけに開眼するが混乱している。呼吸数32回/分。橈骨動脈で脈拍を触知可能。歩行はできない。",
-                    correct: "red",
-                    explanation: "意識レベルが低下しており、呼吸数も30回/分を超えているため、最優先治療群（赤）となります。"
-                },
-                {
-                    scenario: "小学生女児、広範囲の熱傷で泣き叫んでいる。呼吸は正常、橈骨動脈で脈拍は触れる。指示に従うことはできないが、払いのけるなどの動作はみられる。",
-                    correct: "red",
-                    explanation: "広範囲熱傷は重症であり、小児であることも考慮すると生理学的に不安定になる可能性が高いです。現状ではバイタルは安定しているかもしれませんが、緊急治療が必要なため最優先治療群（赤）と判断します。"
-                },
-                {
-                    scenario: "70代女性、瓦礫の下に下半身が挟まれている。呼びかけに反応なし。気道確保するも自発呼吸が見られない。",
-                    correct: "black",
-                    explanation: "気道を確保しても自発呼吸がない場合、START法では不処置/死亡群（黒）と判断されます。"
-                },
-                {
-                    scenario: "20代女性、右腕の変形を訴え、強い痛みで動けない。会話は明瞭。呼吸・脈拍は正常。",
-                    correct: "yellow",
-                    explanation: "歩行はできないが、生命の危機は直ちにはありません。待機的治療が可能なため、待機的治療群（黄）となります。"
-                },
-                {
-                    scenario: "40代男性、額から少量の出血があるが、呼びかけに応じ、自力で歩行可能。",
-                    correct: "green",
-                    explanation: "自力で歩行できる傷病者は、原則として軽処置群（緑）に分類されます。"
-                }
+            
+            // --- Triage Drill Logic ---
+            const drillSetA = [
+                { scenario: '10歳男性、呼びかけに開眼するが混乱。呼吸数28回/分。橈骨動脈は触知可。簡単な指示には従えない。', correct: 'red', explanation: '歩行不能で、簡単な指示に従えないため、精神状態の評価（Mental Status）で「赤」となります。' },
+                { scenario: '30代女性、瓦礫の下から救出。自発呼吸なし。気道確保後も呼吸なし。', correct: 'black', explanation: '気道確保を行っても自発呼吸が再開しないため、「黒」と判断されます。' },
+                { scenario: '40代男性、右足の開放骨折で激しく痛みを訴えている。呼吸数22回/分。橈骨動脈は触知可。指示に従える。', correct: 'yellow', explanation: '歩行はできないが、呼吸・循環・意識レベルの全てが基準内のため「黄」となります。' },
+                { scenario: '20代女性、顔面に擦過傷のみ。パニック状態で泣いているが、「大丈夫、歩けます」と答える。', correct: 'green', explanation: '最初に「歩けるか？」と問いかけ、自力で歩行可能な傷病者は「緑」となります。実際に歩行できれば「緑」と判断します。' },
+                { scenario: '70代男性、意識なし。自発呼吸あり、毎分36回。', correct: 'red', explanation: '呼吸数が毎分30回を超えているため、呼吸の評価（Breathing）で即座に「赤」と判断されます。' },
+                { scenario: '6歳女児、呼びかけに反応なし。呼吸あり。橈骨動脈が触れにくく、CRTが3秒。', correct: 'red', explanation: '橈骨動脈が触知困難、またはCRTが2秒以上延長しているため、循環の評価（Perfusion）で「赤」となります。' },
+                { scenario: '50代女性、広範囲の熱傷。意識あり、呼吸数25回/分。橈骨動脈触知可。指示にも従えるが歩行困難。', correct: 'yellow', explanation: '歩行不能ですが、呼吸・循環・意識の評価基準は全てクリアしているため「黄」と判断します。' },
+                { scenario: '30代男性、頭部からの出血少量。自分で傷を押さえ、「歩けます」と返答し指示場所へ移動した。', correct: 'green', explanation: '自力で歩行し、指示された安全な場所へ移動できるため「緑」です。' },
+                { scenario: '20代男性、胸部に鉄骨が刺さっている。意識はあるが、呼吸が速く浅い（40回/分）。', correct: 'red', explanation: '呼吸数が毎分30回を大幅に超えているため、呼吸の評価（Breathing）で即座に「赤」と判断されます。' },
+                { scenario: '80代女性、呼びかけに反応なし。自発呼吸なし。気道確保すると呼吸が再開した。', correct: 'red', explanation: '気道確保によって呼吸が再開した場合は、生命の危機が差し迫っていると判断し「赤」となります。' }
             ];
 
-            let currentDrillIndex = 0;
-            const drillContainer = document.getElementById('triage-drill-container');
-            const nextDrillButton = document.getElementById('next-drill-button');
+            const drillSetB = [
+                { scenario: '5歳男児、意識は朦朧としている。呼吸数40回/分と速い。', correct: 'red', explanation: '小児の場合、呼吸数が30回以上でも年齢によっては正常範囲ですが、意識が朦朧としているため最優先となります。PAT(小児評価トライアングル)でも異常。' },
+                { scenario: '60代男性、大量に発汗し、胸痛を訴えている。呼吸・脈拍は正常範囲だが、歩行は困難。', correct: 'yellow', explanation: '急性心筋梗塞等が疑われますが、START法では呼吸・循環・意識が正常な歩行困難者は「黄」となります。ただし緊急度は高いと認識すべき症例です。' },
+                { scenario: '10代女性、過呼吸で痺れを訴えている。呼吸数は速いが、会話は可能。自力で座っている。', correct: 'green', explanation: '歩行可能群に分類されます。パニック状態ですが、生命の危機は低いため「緑」です。' },
+                { scenario: '30代男性、バイク事故。呼びかけにうめき声で反応。呼吸数18回/分、橈骨動脈は触知可能。簡単な指示には従えない。', correct: 'red', explanation: '簡単な指示に従えないため、意識レベルの評価で「赤」となります。' },
+                { scenario: '70代女性、倒れているが意識は清明。「気分が悪い」と訴える。呼吸・循環は安定している。', correct: 'yellow', explanation: '歩行不能であり、バイタルが安定していても観察が必要なため「黄」となります。' },
+                { scenario: '40代男性、腕に深い切り傷。出血は多いが、自分で圧迫している。顔面蒼白。橈骨動脈は弱く速い。', correct: 'red', explanation: '橈骨動脈が弱く速い（ショックの兆候）ため、循環の評価で「赤」となります。' },
+                { scenario: '作業員男性、高所から転落。明らかに両足が変形。意識レベルは清明だが、激痛で動けない。', correct: 'yellow', explanation: '歩行不能ですが、呼吸・循環・意識は安定しているため「黄」です。' },
+                { scenario: '90代男性、呼びかけ、痛み刺激に全く反応がない。呼吸も感じられない。頸動脈も触知不能。', correct: 'black', explanation: '無呼吸・無脈であり、救命困難と判断されるため「黒」となります。' },
+                { scenario: '20代女性、泣きながら友人の名前を呼んでいる。軽度の擦り傷のみで、自力で歩き回っている。', correct: 'green', explanation: '自力歩行が可能であり、重篤な外傷がないため「緑」です。' },
+                { scenario: '50代男性、咳き込み、呼吸困難を訴えている。チアノーゼが見られる。呼吸数32回/分。', correct: 'red', explanation: '呼吸数が30回/分を超え、チアノーゼも見られるため、呼吸の評価で「赤」となります。' }
+            ];
 
-            function loadDrill(index) {
+            let score = 0;
+            let currentQuestionIndex = 0;
+            let startTime;
+            let currentDrillSet;
+
+            const questionView = document.getElementById('triage-question-view');
+            const resultsView = document.getElementById('triage-results-view');
+            const drillContainer = document.getElementById('triage-drill-container');
+            const advanceDrillButton = document.getElementById('advance-drill-button');
+            const restartDrillButton = document.getElementById('restart-drill-button');
+            const finalScoreEl = document.getElementById('final-score');
+            const totalTimeEl = document.getElementById('total-time');
+            const resultMessageEl = document.getElementById('result-message');
+            const resultSubMessageEl = document.getElementById('result-sub-message');
+            
+            function shuffle(array) {
+                let currentIndex = array.length, randomIndex;
+                while (currentIndex != 0) {
+                    randomIndex = Math.floor(Math.random() * currentIndex);
+                    currentIndex--;
+                    [array[currentIndex], array[randomIndex]] = [array[randomIndex], array[currentIndex]];
+                }
+                return array;
+            }
+
+            function startDrill(questionSet) {
+                score = 0;
+                currentQuestionIndex = 0;
+                currentDrillSet = shuffle([...questionSet]);
+                startTime = new Date();
+
+                resultsView.classList.add('hidden');
+                questionView.classList.remove('hidden');
+                
+                loadQuestion(currentQuestionIndex);
+            }
+
+            function loadQuestion(index) {
                 drillContainer.innerHTML = '';
-                const item = drillData[index];
+                advanceDrillButton.classList.add('hidden');
+                const item = currentDrillSet[index];
                 
                 const card = document.createElement('div');
                 card.className = 'bg-white p-6 rounded-lg shadow';
-
-                const scenarioText = document.createElement('p');
-                scenarioText.className = 'mb-4';
-                scenarioText.textContent = `【症例 ${index + 1}】 ${item.scenario}`;
-                card.appendChild(scenarioText);
-
-                const buttonContainer = document.createElement('div');
-                buttonContainer.className = 'flex flex-wrap gap-2 justify-center';
-                
-                const tags = [
-                    { id: 'red', text: '🔴 最優先' },
-                    { id: 'yellow', text: '🟡 待機的' },
-                    { id: 'green', text: '🟢 軽処置' },
-                    { id: 'black', text: '⚫️ 不処置' }
-                ];
-
-                tags.forEach(tag => {
-                    const button = document.createElement('button');
-                    button.dataset.tag = tag.id;
-                    button.innerHTML = tag.text;
-                    button.className = `triage-tag tag-${tag.id}`;
-                    buttonContainer.appendChild(button);
-                });
-                card.appendChild(buttonContainer);
-
-                const feedback = document.createElement('div');
-                feedback.className = 'mt-4 text-center font-bold';
-                card.appendChild(feedback);
-                
-                const explanation = document.createElement('p');
-                explanation.className = 'mt-2 text-sm bg-gray-50 p-3 rounded-lg hidden';
-                card.appendChild(explanation);
-
+                card.innerHTML = `
+                    <p class="mb-4 font-bold">【症例 ${index + 1}/10】</p>
+                    <p class="mb-4">${item.scenario}</p>
+                    <div class="flex flex-wrap gap-2 justify-center button-container">
+                        <button data-tag="red" class="triage-tag tag-red">🔴 最優先</button>
+                        <button data-tag="yellow" class="triage-tag tag-yellow">🟡 待機的</button>
+                        <button data-tag="green" class="triage-tag tag-green">🟢 軽処置</button>
+                        <button data-tag="black" class="triage-tag tag-black">⚫️ 不処置</button>
+                    </div>
+                    <div class="feedback mt-4 text-center font-bold"></div>
+                    <p class="explanation mt-2 text-sm bg-gray-50 p-3 rounded-lg hidden"></p>
+                `;
                 drillContainer.appendChild(card);
-
-                buttonContainer.addEventListener('click', (e) => {
+                
+                card.querySelector('.button-container').addEventListener('click', (e) => {
                     if (e.target.matches('button')) {
                         const selectedTag = e.target.dataset.tag;
+                        const feedbackEl = card.querySelector('.feedback');
+                        const explanationEl = card.querySelector('.explanation');
+
                         if (selectedTag === item.correct) {
-                            feedback.textContent = '正解です！';
-                            feedback.className = 'mt-4 text-center font-bold feedback-correct';
+                            feedbackEl.textContent = '正解です！';
+                            feedbackEl.className = 'feedback mt-4 text-center font-bold feedback-correct';
+                            score++;
                         } else {
-                            feedback.textContent = `不正解。正解は「${tags.find(t=>t.id === item.correct).text}」です。`;
-                            feedback.className = 'mt-4 text-center font-bold feedback-incorrect';
+                            const correctTagName = {red: '最優先', yellow: '待機的', green: '軽処置', black: '不処置'}[item.correct];
+                            feedbackEl.textContent = `不正解。正解は「${correctTagName}」です。`;
+                            feedbackEl.className = 'feedback mt-4 text-center font-bold feedback-incorrect';
                         }
-                        explanation.textContent = item.explanation;
-                        explanation.classList.remove('hidden');
                         
-                        // Disable buttons after selection
-                        buttonContainer.querySelectorAll('button').forEach(btn => btn.disabled = true);
+                        explanationEl.textContent = item.explanation;
+                        explanationEl.classList.remove('hidden');
+                        
+                        card.querySelectorAll('button').forEach(btn => btn.disabled = true);
+                        advanceDrillButton.classList.remove('hidden');
+                        if (currentQuestionIndex === currentDrillSet.length - 1) {
+                            advanceDrillButton.textContent = '結果を見る';
+                        } else {
+                            advanceDrillButton.textContent = '次の問題へ';
+                        }
                     }
                 });
             }
 
-            nextDrillButton.addEventListener('click', () => {
-                currentDrillIndex = (currentDrillIndex + 1) % drillData.length;
-                loadDrill(currentDrillIndex);
+            function showResults() {
+                const endTime = new Date();
+                const timeDiff = Math.round((endTime - startTime) / 1000);
+                const minutes = Math.floor(timeDiff / 60);
+                const seconds = timeDiff % 60;
+
+                questionView.classList.add('hidden');
+                resultsView.classList.remove('hidden');
+
+                finalScoreEl.textContent = `${score} / ${currentDrillSet.length}`;
+                totalTimeEl.textContent = `${minutes}分 ${seconds}秒`;
+                
+                if (score >= 9) {
+                    resultMessageEl.textContent = "合格";
+                    resultMessageEl.className = 'p-4 rounded-lg mb-2 font-bold text-lg bg-green-100 text-green-800';
+                    resultSubMessageEl.textContent = '素晴らしい判断力です。さらに知識を深めるために、別の問題セットにも挑戦できます。';
+                    restartDrillButton.textContent = '別の問題で再挑戦';
+                    restartDrillButton.className = 'font-bold py-2 px-6 rounded-lg transition text-white bg-green-600 hover:bg-green-700';
+                } else {
+                    resultMessageEl.textContent = "要再訓練";
+                    resultMessageEl.className = 'p-4 rounded-lg mb-2 font-bold text-lg bg-red-100 text-red-800';
+                    resultSubMessageEl.textContent = '合格には9問以上の正解が必要です。下のボタンを押して、異なる問題で再試験を開始してください。';
+                    restartDrillButton.textContent = '再試験を受ける';
+                    restartDrillButton.className = 'font-bold py-2 px-6 rounded-lg transition text-white bg-orange-500 hover:bg-orange-600';
+                }
+            }
+            
+            advanceDrillButton.addEventListener('click', () => {
+                currentQuestionIndex++;
+                if (currentQuestionIndex < currentDrillSet.length) {
+                    loadQuestion(currentQuestionIndex);
+                } else {
+                    showResults();
+                }
             });
 
-            loadDrill(currentDrillIndex);
+            restartDrillButton.addEventListener('click', () => {
+                const nextSet = (currentDrillSet === drillSetA) ? drillSetB : drillSetA;
+                startDrill(nextSet);
+            });
+
+            // Initial Start
+            startDrill(drillSetA);
 
 
             // Casualty Chart
@@ -501,19 +568,14 @@
                     labels: ['最優先治療群 (赤)', '待機的治療群 (黄)', '軽処置群 (緑)', '不処置群 (黒)'],
                     datasets: [{
                         label: '傷病者分布',
-                        data: [15, 25, 55, 5],
+                        data: [15, 25, 50, 10],
                         backgroundColor: [
                             'rgba(239, 68, 68, 0.8)',
                             'rgba(245, 158, 11, 0.8)',
                             'rgba(34, 197, 94, 0.8)',
                             'rgba(55, 65, 81, 0.8)'
                         ],
-                        borderColor: [
-                            '#ef4444',
-                            '#f59e0b',
-                            '#22c55e',
-                            '#374151'
-                        ],
+                        borderColor: ['#ef4444', '#f59e0b', '#22c55e', '#374151'],
                         borderWidth: 1
                     }]
                 },
@@ -521,13 +583,8 @@
                     responsive: true,
                     maintainAspectRatio: false,
                     plugins: {
-                        legend: {
-                            position: 'top',
-                        },
-                        title: {
-                            display: true,
-                            text: '想定傷病者割合 (%)'
-                        }
+                        legend: { position: 'top' },
+                        title: { display: true, text: '想定傷病者割合 (%)' }
                     }
                 }
             });
@@ -535,3 +592,4 @@
     </script>
 </body>
 </html>
+
